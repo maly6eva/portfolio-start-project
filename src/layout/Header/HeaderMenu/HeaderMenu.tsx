@@ -75,7 +75,8 @@ const ListItem = styled.li`
         content: '';
         display: inline-block;
         height: 3px;
-        background-color: ${Theme.colors.accent};
+        background-color: ${Theme.colors.font};
+        color: ${Theme.colors.font};
         
         position: absolute;
         top: 50%;

@@ -30,7 +30,8 @@ export const Main = () => {
 
 const StyledMain = styled.div`
     min-height: 100vh;
-    background-color: #f1d49c;
+    background-color: ${Theme.colors.secondaryBg};
+    
     display: flex;
 `
 
@@ -61,6 +62,7 @@ const PhotoWrapper = styled.div`
 const MainTitle = styled.h1`
     font-size: 27px;
     font-weight: 400;
+    color: ${Theme.colors.font};
 
     `
 
@@ -70,6 +72,7 @@ const Name = styled.h2`
     font-weight: 700;
     letter-spacing: 0.05em;
     margin: 10px 0;
+    color: ${Theme.colors.font};
     
     
     span{
@@ -93,4 +96,5 @@ const Name = styled.h2`
 const SmallText = styled.span`
     font-size: 14px;
     font-weight: 400;
+    color: ${Theme.colors.font};
  `

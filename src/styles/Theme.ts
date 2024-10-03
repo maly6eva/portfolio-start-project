@@ -6,5 +6,6 @@ export const Theme = {
         font: '#FFF',
         borderColor: '#4A4A4A',
         placeholdeColor: '#495057'
-    }
+    },
+    media: undefined
 }

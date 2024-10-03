@@ -5,7 +5,6 @@ import {TabMenu} from "./TabMenu/TabMenu";
 import {FlexWrapper} from "../../../components/FlexWrapper";
 import {Work} from "./Work/Work";
 import socialImg from "../../../assets/images/img1.png";
-import timerImg from "../../../assets/images/img2.png";
 import {Container} from "../../../components/Container";
 
 const worksItems = ['All', 'Landing page', 'React', 'SPA']

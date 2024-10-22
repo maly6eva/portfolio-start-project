@@ -7,5 +7,10 @@ export const Theme = {
         borderColor: '#4A4A4A',
         placeholdeColor: '#495057'
     },
-    media: undefined
+
+    media: {
+        tablet: 'screen and (max-width: 768px)',
+        mobile: 'screen and (max-width: 576px)',
+        context: 'screen and (max-width: 1024px)'
+    }
 }

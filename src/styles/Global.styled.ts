@@ -3,13 +3,13 @@ import {Theme} from "./Theme";
 
 
 export const GlobalStyle = createGlobalStyle`
-*, 
-*::before,
-*::after{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
     body {
         margin: 0;
@@ -27,32 +27,36 @@ export const GlobalStyle = createGlobalStyle`
         color: ${Theme.colors.font};
         cursor: pointer;
     }
-    
-    ul{
+
+    ul {
         list-style: none;
         color: ${Theme.colors.font};
     }
-    
-    button{
+
+    button {
         background-color: unset;
         border: none;
         cursor: pointer;
         color: ${Theme.colors.font};
     }
-    
+
     section {
         padding: 100px 0;
         color: ${Theme.colors.font};
+        
+        @media ${Theme.media.mobile} {
+            padding: 80px 0;
+        }
     }
-    
-    section:nth-of-type(odd){
+
+    section:nth-of-type(odd) {
         background-color: ${Theme.colors.primaryBg};
     }
-    
+
     section:nth-of-type(even) {
         background-color: ${Theme.colors.secondaryBg};
     }
-    
+
     h3 {
         font-family: "Josefin Sans", sans-serif;
         font-size: 16px;
@@ -60,13 +64,11 @@ export const GlobalStyle = createGlobalStyle`
         letter-spacing: 1px;
         color: ${Theme.colors.font};
     }
-    
-    p{
+
+    p {
         font-size: 14px;
         font-weight: 400;
         color: ${Theme.colors.font};
         line-height: 1.4;
     }
-
-
 `

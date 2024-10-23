@@ -1,12 +1,10 @@
 import React from 'react';
 import styled from "styled-components";
 import {Theme} from "../../../styles/Theme";
-// import menu from '../../../assets/images/menu-btn.svg'
 
 export const HeaderMenu = (props: { menuItems: Array<string> }) => {
     return (
         <StyledHeaderMenu>
-            {/*<img src={menu} alt="menu"/>*/}
             <ul>
                 {props.menuItems.map((item: string, index: number) => {
                     return <ListItem key={index}>

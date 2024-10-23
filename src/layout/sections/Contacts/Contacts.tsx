@@ -22,11 +22,8 @@ export const Contact = () => {
 };
 
 const StyledContacts = styled.section`
-    //min-height: 50px;
-    //background-color: #e4fda4;
+    
 `
-
-
 const StyledForm = styled.form`
     max-width: 540px;
     width: 100%;
@@ -41,13 +38,11 @@ const StyledForm = styled.form`
         height: 155px;
     }
 `
-
 const Field = styled.input`
     width: 100%;
     background-color: ${Theme.colors.secondaryBg};
     border: 1px solid ${Theme.colors.borderColor};
     padding: 7px 15px;
-
     font-family: Poppins, sans-serif;
     font-size: 12px;
     font-weight: 400;

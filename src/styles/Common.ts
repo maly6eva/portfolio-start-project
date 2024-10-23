@@ -1,6 +1,5 @@
 import {Theme} from "./Theme";
 
-
 type FontPropsType = {
     family?: string
     weight?: number

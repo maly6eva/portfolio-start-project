@@ -14,7 +14,6 @@ export const Slogan = () => {
                     <Button>Hire me</Button>
                 </FlexWrapper>
             </Container>
-
         </StyledSlogan>
     );
 };

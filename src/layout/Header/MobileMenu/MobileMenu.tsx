@@ -36,7 +36,7 @@ const StyledMobileMenu = styled.nav`
         display: block;
     }
 `
-const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
+const MobileMenuPopup = styled.div<{ isOpen: boolean }>`{
     position: fixed;
     top: 0;
     left: 0;
@@ -45,12 +45,8 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
     z-index: 2;
     background-color: rgba(31, 31, 32, 0.9);
     display: none;
+    }
 
-    // ${props => props.isOpen && css<{ isOpen: boolean }>`
-    //     display: flex;
-    //     justify-content: center;
-    //     align-items: center;
-    `}
     ul {
         display: flex;
         gap: 30px;

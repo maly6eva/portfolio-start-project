@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {Container} from "../../../components/Container";
 import {FlexWrapper} from "../../../components/FlexWrapper";
 import {TodolistSkills} from "./TodolistSkills";
+import {v1} from "uuid";
 
 
 export type  FilterType = 'All' | 'Active' | 'Completed'
@@ -10,18 +11,24 @@ export const Todolist = () => {
     const name1 ='CSS'
 
     const [tas, setTas] = useState([
-        {id: 1, isDone: true, text: 'Flexbox' },
-        {id: 2, isDone: false, text:  'Grid' },
-        {id: 3, isDone: true, text: 'анимации'},
-        {id: 4, isDone: true, text: 'Webpack' },
-        {id: 5, isDone: false, text:  'Vite' },
-        {id: 6, isDone: false, text: 'Parcel'},
-        {id: 7, isDone: false, text: 'Vue' },
-        {id: 8, isDone: true, text:  'React' },
-        {id: 9, isDone: false, text: 'Angular'}
+        {id: v1(), isDone: true, text: 'Flexbox' },
+        {id:  v1(), isDone: false, text:  'Grid' },
+        {id:  v1(), isDone: true, text: 'анимации'},
+        {id:  v1(), isDone: true, text: 'Webpack' },
+        {id:  v1(), isDone: false, text:  'Vite' },
+        {id:  v1(), isDone: false, text: 'Parcel'},
+        {id:  v1(), isDone: false, text: 'Vue' },
+        {id:  v1(), isDone: true, text:  'React' },
+        {id:  v1(), isDone: false, text: 'Angular'}
     ])
 
-    function removeTask(id: number) {
+    const  addTask = (id: string) => {
+        const newTask =  {id:  v1(), isDone: false, text: id}
+        const newTasks = [newTask, ...tas]
+        setTas(newTasks)
+    }
+
+    function removeTask(id: string) {
         let resultTask = tas.filter((el) => {
             return el.id !== id;
         })
@@ -29,17 +36,17 @@ export const Todolist = () => {
     }
 
 
-    let [filt, setFilt] = useState<FilterType>('All')
+    let [filled, setFilled] = useState<FilterType>('All')
 
-    function chanFilt(value: FilterType) {
-        setFilt(value)
+    function chanFilled(value: FilterType) {
+        setFilled(value)
     }
 
     let tasksForTodoList = tas;
-    if(filt === 'Completed') {
+    if(filled === 'Completed') {
         tasksForTodoList = tas.filter(el => el.isDone === true)
     }
-    if(filt === 'Active') {
+    if(filled  === 'Active') {
         tasksForTodoList = tas.filter(el => el.isDone === false)
     }
 
@@ -47,7 +54,7 @@ export const Todolist = () => {
         <TodolistSection>
             <Container>
                 <FlexWrapper justify={'space-between'} align={'center'}>
-                    <TodolistSkills title={name1} tasks={tasksForTodoList} removeTask={removeTask} chanFilt={chanFilt}/>
+                    <TodolistSkills title={name1} tasks={tasksForTodoList} removeTask={removeTask} chanFilled={chanFilled} addTask={addTask}/>
                 </FlexWrapper>
             </Container>
 

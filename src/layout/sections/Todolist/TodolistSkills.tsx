@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {ChangeEvent, useState, KeyboardEvent} from 'react';
 import styled from "styled-components";
 import {FilterType} from "./Todolist";
 
 type TodolistSkillsProps = {
-    id: number,
+    id: string,
     isDone: boolean,
     text: string,
 }
@@ -11,12 +11,26 @@ type TodolistSkillsProps = {
 type TodoListProps = {
     title?: string;
     tasks: TodolistSkillsProps[]
-    removeTask: (id: number) => void;
-    chanFilt: (value: FilterType) => void;
+    removeTask: (id: string) => void;
+    chanFilled: (value: FilterType) => void;
+    addTask: (id: string) => void
 }
 
-export const TodolistSkills = ({title, tasks, removeTask, chanFilt}: TodoListProps) => {
+export const TodolistSkills = ({title, tasks, removeTask, chanFilled, addTask}: TodoListProps) => {
+const [taskTitle, setTaskTitle] = useState('')
+    const addTaskHandler = () => {
+        addTask(taskTitle)
+        setTaskTitle('')
+    }
 
+    const onChangeTasks = (e: ChangeEvent<HTMLInputElement>) => {
+            setTaskTitle(e.currentTarget.value)
+    }
+     const onKeyUpTaskTitle = (e: KeyboardEvent<HTMLInputElement>) => {
+         if (e.key === 'Enter') {
+             addTask(taskTitle)
+             setTaskTitle('')
+         }}
     const task = tasks.map((el) => {
         return (
             <li key={el.id}>
@@ -30,16 +44,18 @@ export const TodolistSkills = ({title, tasks, removeTask, chanFilt}: TodoListPro
         <TodoSkillslist>
             <h3>{title}</h3>
                 <div>
-                    <input/>
-                    <ButtonClik>+</ButtonClik>
+                    <input value={taskTitle}
+                           onChange={onChangeTasks}
+                    onKeyUp={onKeyUpTaskTitle}/>
+                    <ButtonClik onClick={addTaskHandler}>+</ButtonClik>
                 </div>
                 <ul>
                     {task}
                 </ul>
                 <ButtonDiv>
-                    <button onClick={() => {chanFilt('All')}}>All</button>
-                    <button onClick={() => {chanFilt('Active')}}>Active</button>
-                    <button onClick={() => {chanFilt('Completed')}}>Completed</button>
+                    <button onClick={() => {chanFilled('All')}}>All</button>
+                    <button onClick={() => {chanFilled('Active')}}>Active</button>
+                    <button onClick={() => {chanFilled('Completed')}}>Completed</button>
                 </ButtonDiv>
             </TodoSkillslist>
     );
